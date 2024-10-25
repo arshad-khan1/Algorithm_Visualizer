@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ada3322b.css",
+    "main.js": "/static/js/main.138136bb.js",
+    "static/js/787.0e059cfa.chunk.js": "/static/js/787.0e059cfa.chunk.js",
+    "static/media/MonoLisa-Regular.otf": "/static/media/MonoLisa-Regular.4ec1cbcb13c98e690a55.otf",
+    "index.html": "/index.html",
+    "main.ada3322b.css.map": "/static/css/main.ada3322b.css.map",
+    "main.138136bb.js.map": "/static/js/main.138136bb.js.map",
+    "787.0e059cfa.chunk.js.map": "/static/js/787.0e059cfa.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ada3322b.css",
+    "static/js/main.138136bb.js"
+  ]
+}

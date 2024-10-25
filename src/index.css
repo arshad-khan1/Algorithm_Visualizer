@@ -1,0 +1,85 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(162, 226, 226);
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+.app{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.head {
+  font-size: 100px;
+  /* background-color: aquamarine; */
+  text-decoration: none;
+  
+}
+
+.sorting {    
+  font-size: 30px;
+  color: black;
+  /* background-color: aqua; */
+  border: 2px solid black;
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.pathing{
+  font-size: 30px;
+  color: black;
+  /* background-color: aqua; */
+  border: 2px solid black;
+  cursor: pointer;
+  padding: 20px;
+  border-radius: 20px;
+  text-decoration: none;
+
+}
+
+.homepagediv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.nav-heading{
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  gap: 50px;
+}
+
+.navbar-brand{
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.homeHeading{
+  text-decoration: none;
+}
+
+.nav-menu-path{
+  display: flex;
+  gap: 10px;
+}
