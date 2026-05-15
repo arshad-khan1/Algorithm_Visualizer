@@ -1,7 +1,7 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import Grid from "./grid";
-import Navbar from "./navbar";
 import Menu from "./menu";
+
 import {dijkstra,getNodesInShortestPathOrder} from "../algorithms/dijkstra";
 import {getMaze} from "../algorithms/recursiveMaze";
 import {bfsdfs} from "../algorithms/bfs";
@@ -217,8 +217,7 @@ class Pathfinder extends Component {
             }
            // setTimeout(() => {
                 const node = visitedNodesInOrder[i];
-                const newGrid = toggleVisit(this.state.grid,node.row,node.col);
-                //this.setState({grid:newGrid});
+
                 document.getElementById(`node-${node.row}-${node.col}`).className =
                     'node node-visited';
                 await sleep(10);
@@ -287,16 +286,7 @@ const clearBoard = (grid,row,col)=>{
     return newGrid;
 }
 
-const toggleVisit = (grid,row,col) =>{
-    const newGrid = grid.slice();
-    const node = newGrid[row][col];
-    const newNode = {
-        ...node,
-        visitedNode: !node.visitedNode
-    };
-    newGrid[row][col] = newNode;
-    return newGrid;
-}
+
 const getNewGridWithWallToggled = (grid, row, col) => {
     const newGrid = grid.slice();
     const node = newGrid[row][col];

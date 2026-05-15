@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import SimpleSelect from "./simpleSelect";
-import {Link} from "react-router-dom";
+
 
 class Navbar extends Component {
     render() {
