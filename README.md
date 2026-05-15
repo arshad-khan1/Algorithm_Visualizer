@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# ⚡ AlgoVisuals - Modern Algorithm Visualizer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+AlgoVisuals is a premium, interactive web application designed to help developers and students visualize and understand the logic behind various algorithms. Built with a modern dark theme and glassmorphism aesthetic, it provides a seamless and engaging learning experience.
 
-## Available Scripts
+![Modern UI Preview](/home/ptspl19/.gemini/antigravity/brain/f39964c8-8e04-4e64-b743-ba7c05e1b01e/modern_algorithm_visualizer_home_1778822305363.png)
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+### 1. Sorting Algorithms
+Visualize how data sets are organized in real-time. Watch the bars dance as they find their place!
+- **Algorithms**: Bubble Sort, Merge Sort, Quick Sort, Insertion Sort, Selection Sort.
+- **Interactive Controls**: Step forward/backward, adjust speed, and change array size.
+- **Modern UI**: Gradient bars with hover tooltips and sleek playback controls.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### 2. Pathfinding Algorithms
+Explore how algorithms find the shortest path through complex grids and mazes.
+- **Algorithms**: Dijkstra, A*, Breadth-First Search (BFS), Depth-First Search (DFS).
+- **Maze Generation**: Random and Recursive Maze generation algorithms.
+- **Interactive Grid**: Draw your own walls by dragging, move start/end nodes, and watch the search process.
+- **Responsive Layout**: The grid dynamically resizes to fit your screen perfectly.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🎨 Design Philosophy
+- **Dark Mode First**: Deep midnight colors to reduce eye strain and look premium.
+- **Glassmorphism**: Subtle transparency and blur effects for a futuristic feel.
+- **Typography**: Clean, modern fonts (Outfit & Inter) for better readability.
+- **Micro-animations**: Smooth transitions and hover effects for better engagement.
 
-### `npm test`
+## 🛠️ Built With
+- **React.js**: Core frontend framework.
+- **Vanilla CSS**: Custom design system with CSS variables.
+- **Material UI Icons**: Premium iconography for controls.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🏃 Getting Started
 
-### `npm run build`
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/arshad-khan1/Algorithm_Visualizer.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd Algorithm_Visualizer
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Start the development server:
+   ```bash
+   npm start
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🤝 Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests to improve the visualizers or add new algorithms.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+Designed with ❤️ by [Arshad Khan](https://github.com/arshad-khan1)

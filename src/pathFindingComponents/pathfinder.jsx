@@ -19,37 +19,62 @@ class Pathfinder extends Component {
             ],
             algo:0,
             mazes:[
-                "Random"
+                "Random", "Recursive"
             ],
+
             maze:0
         }
     }
     componentDidMount() {
+        this.updateGridSize();
+        window.addEventListener('resize', this.updateGridSize);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateGridSize);
+    }
+
+    updateGridSize = () => {
         const width = window.innerWidth;
         const height = window.innerHeight;
-        const row = Math.max(Math.floor(height/25)-7,10);
-        const col = Math.floor(width/25);
+        
+        // Accurate vertical space used by UI elements
+        const navbarHeight = 70;
+        const titleHeight = 60;
+        const menuHeight = 100;
+        const paddingHeight = 40;
+        const verticalSpaceUsed = navbarHeight + titleHeight + menuHeight + paddingHeight; 
+        
+        const nodeSize = 25;
+        const row = Math.max(Math.floor((height - verticalSpaceUsed) / nodeSize), 10);
+        const col = Math.floor((width - 60) / nodeSize);
+        
         const startNode = {
-            row:4,
-            col:4
+            row: Math.floor(row / 2),
+            col: Math.floor(col / 4)
         };
         const endNode = {
-            row: row-5,
-            col: col-5
+            row: Math.floor(row / 2),
+            col: Math.floor(3 * col / 4)
         }
-        // console.log( endNode.row );
-        const grid = getInitialGrid(row,col);
-        grid[startNode.row][startNode.col].isStartNode = true;
-        grid[row-5][col-5].isEndNode = true;
-        this.setState({grid,row,col,startNode,endNode});
+        
+        const grid = getInitialGrid(row, col);
+        if (row > startNode.row && col > startNode.col) {
+            grid[startNode.row][startNode.col].isStartNode = true;
+        }
+        if (row > endNode.row && col > endNode.col) {
+            grid[endNode.row][endNode.col].isEndNode = true;
+        }
+        
+        this.setState({ grid, row, col, startNode, endNode });
     }
+
+
 
     render() {
         return (
-            <Fragment>
-                <Navbar/>
-
-                <span style={{margin: 10}}/>
+            <div className='page-container'>
+                <h1 className='page-title'>Pathfinding Visualizer</h1>
 
                 <div style={{textAlign:"center"}} >
                     <Grid
@@ -59,24 +84,23 @@ class Pathfinder extends Component {
                         onMouseUp={this.handleMouseUp}
                     />
                 </div>
-                <span style={{margin: 10}}/>
-                <Menu
-                    onAlgoChanged = {this.handleAlgoChanged}
-                    onVisualize = {this.handleClick}
-                    algorithms={this.state.algorithms}
-                    mazes={this.state.mazes}
-                    onMazeChanged={this.handleMazeChanged}
-                    onCreateMaze={this.handleCreateMaze}
-                    onClearBoard={this.handleClearBoard}
-                    onClearPath={this.handleClearPath}
-                />
 
-                <span style={{margin: 20}}/>
-                
-
-            </Fragment>
+                <div className='controls-glass' style={{ marginTop: 'var(--space-lg)' }}>
+                    <Menu
+                        onAlgoChanged = {this.handleAlgoChanged}
+                        onVisualize = {this.handleClick}
+                        algorithms={this.state.algorithms}
+                        mazes={this.state.mazes}
+                        onMazeChanged={this.handleMazeChanged}
+                        onCreateMaze={this.handleCreateMaze}
+                        onClearBoard={this.handleClearBoard}
+                        onClearPath={this.handleClearPath}
+                    />
+                </div>
+            </div>
         );
     }
+
 
     handleMouseDown = (row, col) => {
         if((this.state.startNode.row!==row || this.state.startNode.col!==col) && (this.state.endNode.row!==row || this.state.endNode.col!==col) ){
@@ -106,17 +130,33 @@ class Pathfinder extends Component {
         this.setState({maze:val});
     }
 
-    handleCreateMaze = () =>{
+    handleCreateMaze = () => {
+        this.handleClearBoard(); // Clear previous walls and paths
+        const { grid, row, col } = this.state;
+        const newGrid = grid.slice();
+        
         let pairs;
-        switch (this.state.maze){
-            case 1:
-                pairs= getMaze(this.state.grid,this.state.row,this.state.col);
-                break;
-            default:
-                pairs= randomMaze(this.state.grid,this.state.row,this.state.col);
+        if (this.state.maze === 1) {
+            pairs = getMaze(newGrid, row, col);
+        } else {
+            pairs = randomMaze(newGrid, row, col);
         }
 
+        // Apply the walls to the new grid
+        pairs.forEach(pair => {
+            newGrid[pair.xx][pair.yy].isWall = true;
+        });
+
+
+        // CRITICAL: Ensure start and end nodes are NEVER walls
+        newGrid[this.state.startNode.row][this.state.startNode.col].isWall = false;
+        newGrid[this.state.endNode.row][this.state.endNode.col].isWall = false;
+
+        this.setState({ grid: newGrid });
     }
+
+
+
     handleClearBoard = ()=> {
         const {grid,row,col} = this.state;
         this.setState({grid:clearBoard(grid,row,col)});

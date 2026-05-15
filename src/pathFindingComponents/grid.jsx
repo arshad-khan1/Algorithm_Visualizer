@@ -11,7 +11,7 @@ class Grid extends Component {
             <div className="Grid">
                 {this.props.grid.map((row, rowidx) => {
                     return (
-                        <div key={rowidx}>
+                        <div key={rowidx} className="grid-row">
                             {row.map((node, nodeidx) => {
                                 const {row, col, isWall, visitedNode, } = node;
                                 return (
@@ -32,6 +32,7 @@ class Grid extends Component {
                     );
                 })}
             </div>
+
         );
     }
 }

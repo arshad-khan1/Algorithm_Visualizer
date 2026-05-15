@@ -1,10 +1,15 @@
-
-.Grid{
-    font-size: 0;
+.Grid {
+    display: inline-flex;
+    flex-direction: column;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0f172a;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    line-height: 0;
+    max-width: 100%;
 }
-div{
-    padding: 0px;
-    margin: 0px;
-    margin-bottom: 0px;
-    padding-bottom: 0px;
+
+.grid-row {
+    display: flex;
+    flex-direction: row;
+    height: 25px; /* Ensure row matches node size */
 }

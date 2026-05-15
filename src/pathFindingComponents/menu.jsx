@@ -5,31 +5,36 @@ import "./menu.css"
 class Menu extends Component {
     render() {
         return (
-            <nav className="nav alert-dark" >
+            <div className="menu-container">
+                <SimpleSelect
+                    onAlgoChanged={this.props.onMazeChanged}
+                    items={this.props.mazes}
+                    label="Maze"
+                />
                 <SimpleSelect
                     onAlgoChanged = {this.props.onAlgoChanged}
                     items={this.props.algorithms}
+                    label="Algorithm"
                 />
-                {/* <SimpleSelect
-                    onAlgoChanged={this.props.onMazeChanged}
-                    items={this.props.mazes}
-                /> */}
+
                 <button
-                    className='button1 '
-                    onClick={this.props.onCreateMaze}>
-                    Create Maze
+                    className='btn-primary'
+                    onClick={this.props.onVisualize}>
+                    Visualize
                 </button>
                 <button
-                    onClick={this.props.onVisualize}
-                    className="button2 "
-                >Visualize</button>
+                    className='btn-secondary'
+                    onClick={this.props.onCreateMaze}>
+                    Generate Maze
+                </button>
                 <button
                     onClick={this.props.onClearPath}
-                    className='button3 '>Clear Path</button>
+                    className='btn-secondary'>Clear Path</button>
                 <button
                     onClick={this.props.onClearBoard}
-                    className='button4 '>Clear Board</button>
-            </nav>
+                    className='btn-secondary'>Clear Board</button>
+            </div>
+
         );
     }
 }

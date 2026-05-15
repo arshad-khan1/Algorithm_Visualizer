@@ -16,9 +16,6 @@ import Backward from '@material-ui/icons/SkipPreviousRounded';
 import Pause from '@material-ui/icons/PauseCircleOutline';
 import RotateLeft from '@material-ui/icons/RotateLeft';
 
-// Styles
-// import '../styles/RiseUpText/RiseUpText';
-import { riseText } from '../styles/RiseUpText/RiseUpText';
 import '../App.css';
 
 class Sorting extends Component {
@@ -43,9 +40,10 @@ class Sorting extends Component {
 	};
 
 	componentDidMount() {
-		window.addEventListener('load', riseText);
+
 		this.generateBars();
 	}
+
 
 	setTimeouts = () => {
 		let steps = this.state.arraySteps;
@@ -212,45 +210,42 @@ class Sorting extends Component {
 
 		if (this.state.arraySteps.length === this.state.currentStep) {
 			playButton = (
-				<button className='controller' onClick={this.generateBars}>
+				<button className='btn-primary' onClick={this.generateBars}>
 					<RotateLeft />
 				</button>
 			);
 		} else {
 			playButton = (
-				<button className='controller' onClick={this.setTimeouts}>
+				<button className='btn-primary' onClick={this.setTimeouts}>
 					<Play />
 				</button>
 			);
 		}
 
+
 		return (
-			<div className='app'>
-				<h1 className='page-header_title risetext'>
-					<span className='page-header_title-main enclose'>
-						Sorting Visualizer
-					</span>
-				</h1>
+			<div className='page-container'>
+				<h1 className='page-title'>Sorting Visualizer</h1>
 				
 				<div className='frame'>
-					<div className='barsDiv container card'>{barsDiv}</div>
+					<div className='bars-container'>{barsDiv}</div>
 				</div>
 				
-				<div className='control-pannel'>
+				<div className='controls-glass'>
 					<div className='control-buttons'>
-						<button className='controller' onClick={this.stepBack}>
+						<button className='btn-secondary' onClick={this.stepBack}>
 							<Backward />
 						</button>
 						{playButton}
-						<button className='controller' onClick={this.stepForward}>
+						<button className='btn-secondary' onClick={this.stepForward}>
 							<Forward />
 						</button>
 					</div>
-				</div>
-				
-				<div className='pannel'>
+
+					<div className='divider' style={{ width: '1px', height: '30px', background: 'rgba(255,255,255,0.1)', margin: '0 10px' }} />
+
 					<Form
-						formLabel='Algorithms'
+						formLabel='Algorithm'
 						values={[
 							'Bubble Sort',
 							'Merge Sort',
@@ -278,13 +273,14 @@ class Sorting extends Component {
 					<Form
 						formLabel='Speed'
 						values={[500, 400, 300, 200, 100]}
-						labels={['1x', '2x', '3x', '4x', '5x']}
+						labels={['0.5x', '1x', '1.5x', '2x', '3x']}
 						currentValue={this.state.delay}
 						onChange={this.changeSpeed}
 					/>
 				</div>
 			</div>
 		);
+
 	}
 }
 

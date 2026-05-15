@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-	FormControl,
-	FormControlLabel,
-	Radio,
-	RadioGroup,
-	FormLabel,
-} from '@material-ui/core';
+import './Form.css';
 
 export default function Form({
 	formLabel,
@@ -15,22 +9,15 @@ export default function Form({
 	onChange,
 }) {
 	return (
-		<div className='card container-small'>
-			<FormControl>
-				<FormLabel>{formLabel}</FormLabel>
-				<RadioGroup value={currentValue} onChange={onChange}>
-					{values.map((value, index) => {
-						return (
-							<FormControlLabel
-								key={`${value}_${index}`}
-								value={value}
-								control={<Radio />}
-                                label={labels[index]}
-							/>
-						);
-					})}
-				</RadioGroup>
-			</FormControl>
+		<div className='form-group'>
+			<label className='form-label'>{formLabel}</label>
+			<select className='form-select' value={currentValue} onChange={onChange}>
+				{values.map((value, index) => (
+					<option key={`${value}_${index}`} value={value}>
+						{labels[index]}
+					</option>
+				))}
+			</select>
 		</div>
 	);
 }
